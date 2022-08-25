@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Categories from "../Components/Categories/categories.js";
+import Header from "../Components/Header/header.js";
+import Hero from "../Components/Hero/hero";
+import ProductMenu from "../Components/Products/productMenu.js";
 
 function Shop() {
   return (
-    <div>Shop</div>
-  )
+    <>
+      <Header />
+      <ProductMenu/>
+    
+    </>
+  );
 }
 
-export default Shop
+export default Shop;
