@@ -5,9 +5,9 @@ import Topbar from './topbar'
 function Header() {
   return (
     <header className="header">
-    <Topbar />
-    <Navbar />
-  </header>
+      <Topbar />
+      <Navbar />
+    </header>
   )
 }
 

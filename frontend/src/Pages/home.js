@@ -12,7 +12,7 @@ function Home() {
     return (
         <>
             <Header />
-            <Hero />
+            <Hero status={true} />
             <Categories />
             <FeaturedProduct />
             <Banner />

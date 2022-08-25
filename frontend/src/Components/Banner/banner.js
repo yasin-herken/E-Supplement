@@ -3,16 +3,16 @@ import banner1 from '../../assets/img/banner/banner-1.jpg';
 import banner2 from '../../assets/img/banner/banner-1.jpg';
 function Banner() {
   return (
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
+    <div className="banner">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-6 col-md-6 col-sm-6">
+                    <div className="banner__pic">
                         <img src={banner1} alt=""/>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
+                <div className="col-lg-6 col-md-6 col-sm-6">
+                    <div className="banner__pic">
                         <img src={banner2} alt=""/>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ function Navbar() {
         <div className="row">
           <div className="col-lg-3">
             <div className="header__logo">
-              <a href="./index.html">
+              <a href="/">
                 <img src={Logo} alt="" />
               </a>
             </div>
@@ -15,7 +15,7 @@ function Navbar() {
             <nav className="header__menu">
               <ul>
                 <li className="active">
-                  <a href="./index.html">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
                   <a href="./shop-grid.html">Shop</a>
@@ -24,7 +24,7 @@ function Navbar() {
                   <a href="#">Pages</a>
                   <ul className="header__menu__dropdown">
                     <li>
-                      <a href="./shop-details.html">Shop Details</a>
+                      <a href="/shop-detail">Shop Details</a>
                     </li>
                     <li>
                       <a href="./shoping-cart.html">Shoping Cart</a>

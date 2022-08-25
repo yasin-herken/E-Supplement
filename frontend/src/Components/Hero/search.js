@@ -1,6 +1,6 @@
 import React from 'react'
 import banner from '../../assets/img/hero/banner.jpg';
-function Search() {
+function Search({status}) {
     return (
         <div className="col-lg-9">
             <div className="hero__search">
@@ -26,7 +26,7 @@ function Search() {
                     </div>
                 </div>
             </div>
-            <div className="hero__item set-bg" style={{backgroundImage:`url("${banner}")`}}>
+            {status?<div className="hero__item set-bg" style={{backgroundImage:`url("${banner}")`}}>
                 <div className="hero__text">
                     <span>FRUIT FRESH</span>
                     <h2>
@@ -38,7 +38,7 @@ function Search() {
                         SHOP NOW
                     </a>
                 </div>
-            </div>
+            </div>:null}
         </div>
     )
 }

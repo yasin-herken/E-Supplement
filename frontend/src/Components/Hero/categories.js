@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Categories() {
+    const [active,setActive] = useState(false);
+    const dropdownHandler = (e) =>{
+        e.preventDefault();
+        active?setActive(false):setActive(true)
+    }
     return (
         <div className="col-lg-3">
-            <div className="hero__categories">
-                <div className="hero__categories__all">
+            <div className="hero__categories" onClick={dropdownHandler}>
+                <div className="hero__categories__all" >
                     <i className="fa fa-bars" />
                     <span>All departments</span>
                 </div>
-                <ul>
+                <ul style={{display:active?"block":"none"}}>
                     <li>
                         <a href="#">Fresh Meat</a>
                     </li>

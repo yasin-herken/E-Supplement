@@ -17,7 +17,6 @@ function LatestProduct() {
                             <h4>Latest Products</h4>
                             <Swiper
                                 className='latest-product__slider owl-carousel'
-                                key={1}
                                 style={{margin:"0"}}
                                 modules={[Autoplay,Pagination, Navigation, A11y]}
                                 autoHeight= {false}
@@ -27,7 +26,7 @@ function LatestProduct() {
                                 slidesPerView={1}
                             >
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={1}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />
@@ -58,7 +57,7 @@ function LatestProduct() {
                                     </SwiperSlide>
                                 </div>
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={2}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />
@@ -101,12 +100,11 @@ function LatestProduct() {
                                 autoHeight= {false}
                                 speed={1200}
                                 loop="true"
-                                key={2}
                                 autoplay={{ delay: 5000, disableOnInteraction: false }}
                                 slidesPerView={1}
                             >
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={3}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />
@@ -137,7 +135,7 @@ function LatestProduct() {
                                     </SwiperSlide>
                                 </div>
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={4}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />
@@ -185,7 +183,7 @@ function LatestProduct() {
                                 slidesPerView={1}
                             >
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={5}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />
@@ -216,7 +214,7 @@ function LatestProduct() {
                                     </SwiperSlide>
                                 </div>
                                 <div className='latest-product__slider__item'>
-                                    <SwiperSlide>
+                                    <SwiperSlide key={6}>
                                         <a href="#" className="latest-product__item">
                                             <div className="latest-product__item__pic">
                                                 <img src={lp1} alt="" />

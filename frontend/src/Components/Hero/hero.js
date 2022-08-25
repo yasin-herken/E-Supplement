@@ -2,13 +2,13 @@ import React from 'react'
 import Categories from './categories'
 import Search from './search'
 
-function Hero() {
+function Hero({status}) {
   return (
     <section className="hero">
-    <div className="container">
+      <div className="container">
       <div className="row">
         <Categories />
-        <Search />
+        <Search status={status}/>
       </div>
     </div>
   </section>
