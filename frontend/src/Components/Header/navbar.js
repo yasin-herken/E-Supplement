@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../../assets/img/logo.png';
-function Navbar() {
+function Navbar({setIsOpen}) {
+  let isOpen = false;
+  const humbergerHandler = (e) =>{
+    e.preventDefault()
+    isOpen?setIsOpen(false):setIsOpen(true)
+    isOpen?isOpen=false:isOpen=true
+    console.log(isOpen)
+  }
+
   return (
     <div className="container">
         <div className="row">
@@ -66,7 +74,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="humberger__open">
+        <div className="humberger__open" onClick={humbergerHandler}>
           <i className="fa fa-bars" />
         </div>
       </div>

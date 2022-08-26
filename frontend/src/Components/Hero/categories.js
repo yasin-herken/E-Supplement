@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-
+import "./hero.css";
 function Categories() {
-    const [active,setActive] = useState(false);
+    const [active,setActive] = useState(true);
+    const [shake, setShake] = useState(false);
     const dropdownHandler = (e) =>{
         e.preventDefault();
         active?setActive(false):setActive(true)
+        setShake(true)
+        setTimeout(()=>setShake(false),2000)
     }
     return (
         <div className="col-lg-3">
@@ -13,7 +16,7 @@ function Categories() {
                     <i className="fa fa-bars" />
                     <span>All departments</span>
                 </div>
-                <ul style={{display:active?"block":"none"}}>
+                <ul className={shake ? `shake`: null} style={{display:active?"block":"none"}}>
                     <li>
                         <a href="#">Fresh Meat</a>
                     </li>

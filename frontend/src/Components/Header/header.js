@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from './navbar'
 import Topbar from './topbar'
 
-function Header() {
+function Header({setIsOpen}) {
   return (
     <header className="header">
       <Topbar />
-      <Navbar />
+      <Navbar setIsOpen={setIsOpen} />
     </header>
   )
 }
