@@ -7,6 +7,7 @@ import ShopGrid from './Pages/shopGrid';
 import ShopingCard from './Pages/shopingCard';
 import Checkout from './Pages/checkout';
 import Shop from './Pages/shop';
+import BlogDetails from './Pages/blogDetails';
 function App() {
   return (
     <Routes>
@@ -17,6 +18,7 @@ function App() {
       <Route path="/shop-grid" element={<ShopGrid />} />
       <Route path="/shoping-card" element={<ShopingCard />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/blog-details" element={<BlogDetails />} />
     </Routes>
     
   );
