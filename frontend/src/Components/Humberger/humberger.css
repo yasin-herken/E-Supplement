@@ -1,0 +1,30 @@
+.wrapper{
+	position: relative;
+}
+.sidebar{
+	position: fixed;
+	width: 25px;
+	height: 100%;
+	padding: 10px 0;
+	    
+}
+.wrapper .sidebar ul li{
+	padding: 4px;	
+}
+.wrapper .sidebar ul li a{
+	color: #bdb8d7;
+	display: block;
+}
+.wrapper .sidebar ul li a .fas{
+	width: 25px!important;
+}
+.wrapper .sidebar ul li a .far{
+	width: 25px!important;
+}
+.wrapper .sidebar ul li:hover{
+	background: #311B92;
+}
+.wrapper .sidebar ul li a:hover{
+	color: #fff;
+	text-decoration: none;
+}

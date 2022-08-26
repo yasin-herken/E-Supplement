@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Logo from '../../assets/img/logo.png';
 import Language from '../../assets/img/language.png';
+import "./humberger.css";
 function Humberger({isOpen,setIsOpen}) {
     const humbergerHandler = (e) =>{
         e.preventDefault()
@@ -36,20 +37,20 @@ function Humberger({isOpen,setIsOpen}) {
               <a href="#"><i className="fa fa-user" /> Login</a>
             </div>
           </div>
-          <nav className="humberger__menu__nav mobile-menu">
-            <ul>
-              <li className="active"><a href="/">Home</a></li>
-              <li><a href="/shop">Shop</a></li>
-              <li><a href="#">Pages</a>
-                <ul className="header__menu__dropdown">
-                  <li><a href="/shop-detail">Shop Details</a></li>
-                  <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                  <li><a href="./checkout.html">Check Out</a></li>
-                  <li><a href="./blog-details.html">Blog Details</a></li>
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <ul className='navbar-nav'>
+              <li className="nav-item active"><a className="nav-link" href="/">Home</a></li>
+              <li className="nav-item"><a className="nav-link" href="/shop">Shop</a></li>
+              <li className="nav-item dropdown"><a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pages</a>
+                <ul className="dropdown-menu" id="navbardrop" style={{border:"none"}}>
+                  <li ><a className='dropdown-item' href="/shop-detail">Shop Details</a></li>
+                  <li ><a className='dropdown-item' href="/shoping-cart">Shoping Cart</a></li>
+                  <li ><a className='dropdown-item' href="/checkout">Check Out</a></li>
+                  <li ><a className='dropdown-item' href="/blog-details">Blog Details</a></li>
                 </ul>
               </li>
-              <li><a href="./blog.html">Blog</a></li>
-              <li><a href="./contact.html">Contact</a></li>
+              <li className='nav-item'><a className="nav-link" href="/blog">Blog</a></li>
+              <li className='nav-item'><a className="nav-link" href="/blog">Contact</a></li>
             </ul>
           </nav>
           <div id="mobile-menu-wrap" />
