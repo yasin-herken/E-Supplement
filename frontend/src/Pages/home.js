@@ -17,7 +17,7 @@ function Home() {
         <>
             <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
             <Header setIsOpen={setIsOpen} />
-            <Hero status={true} />
+            <Hero status={true} show={true} />
             <Categories />
             <FeaturedProduct />
             <Banner />
