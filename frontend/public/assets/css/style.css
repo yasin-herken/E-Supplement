@@ -1110,6 +1110,19 @@ ol {
 	border: none;
 	display: inline-block;
 }
+.price-range-wrap .range-slider .price-input ::placeholder {
+    color: #dd2222;
+    opacity: 1;
+}
+
+.price-range-wrap .range-slider .price-input .price-label {
+	font-size: 16px;
+	color: #dd2222;
+	font-weight: 700;
+	max-width: 20%;
+	border: none;
+	display: inline-block;
+}
 
 .price-range-wrap .price-range {
 	border-radius: 0;
