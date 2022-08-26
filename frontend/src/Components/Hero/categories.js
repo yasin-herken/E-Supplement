@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./hero.css";
-function Categories() {
+function Categories({show}) {
     const [active,setActive] = useState(true);
     const [shake, setShake] = useState(false);
     const dropdownHandler = (e) =>{
@@ -9,6 +9,13 @@ function Categories() {
         setShake(true)
         setTimeout(()=>setShake(false),2000)
     }
+    useEffect(()=>{
+        if(show){
+            setActive(true)
+        }else{
+            setActive(false)
+        }
+    },[show])
     return (
         <div className="col-lg-3">
             <div className="hero__categories" onClick={dropdownHandler}>

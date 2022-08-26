@@ -26,7 +26,7 @@ function Navbar({setIsOpen}) {
                   <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="./shop-grid.html">Shop</a>
+                  <a href="/shop">Shop</a>
                 </li>
                 <li>
                   <a href="#">Pages</a>
@@ -35,21 +35,21 @@ function Navbar({setIsOpen}) {
                       <a href="/shop-detail">Shop Details</a>
                     </li>
                     <li>
-                      <a href="./shoping-cart.html">Shoping Cart</a>
+                      <a href="/shoping-card">Shoping Cart</a>
                     </li>
                     <li>
-                      <a href="./checkout.html">Check Out</a>
+                      <a href="/checkout">Check Out</a>
                     </li>
                     <li>
-                      <a href="./blog-details.html">Blog Details</a>
+                      <a href="/blog-details">Blog Details</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="./blog.html">Blog</a>
+                  <a href="/blog">Blog</a>
                 </li>
                 <li>
-                  <a href="./contact.html">Contact</a>
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
             </nav>

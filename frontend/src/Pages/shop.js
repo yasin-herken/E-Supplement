@@ -1,15 +1,16 @@
 import React from "react";
-import Categories from "../Components/Categories/categories.js";
+import Footer from "../Components/Footer/footer.js";
 import Header from "../Components/Header/header.js";
-import Hero from "../Components/Hero/hero";
+import Humberger from "../Components/Humberger/humberger.js";
 import ProductMenu from "../Components/Products/productMenu.js";
 
 function Shop() {
   return (
     <>
+      <Humberger />
       <Header />
-      <ProductMenu/>
-    
+      <ProductMenu />
+      <Footer />
     </>
   );
 }
