@@ -7,6 +7,8 @@ import featured5 from '../../assets/img/featured/feature-5.jpg';
 import featured6 from '../../assets/img/featured/feature-6.jpg';
 import featured7 from '../../assets/img/featured/feature-7.jpg';
 import featured8 from '../../assets/img/featured/feature-7.jpg';
+import ProductItem from '../ProductItem/productItem';
+
 function FeaturedProduct() {
   return (
     <section className="featured spad">
@@ -31,260 +33,28 @@ function FeaturedProduct() {
       </div>
       <div className="row featured__filter">
         <div className="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured1}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured1} productName = "KUŞBAŞI" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured2}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured2} productName = "MUz" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured3}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured3} productName = "İNCİR" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured4}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured4} productName = "KARPUZ" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured5}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured5} productName = "ÜZÜM" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured6}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured6} productName = "HAMBURGER" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured7}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured7} productName = "MANGO" productPrice = "200.00"/>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-          <div className="featured__item">
-            <div
-              className="featured__item__pic set-bg"
-              style={{ backgroundImage: `url("${featured8}")` }}
-            >
-              <ul className="featured__item__pic__hover">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-heart" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-retweet" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-shopping-cart" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="featured__item__text">
-              <h6>
-                <a href="#">Crab Pool Security</a>
-              </h6>
-              <h5>$30.00</h5>
-            </div>
-          </div>
+        <ProductItem imgPath = {featured8} productName = "MANGO" productPrice = "200.00"/>
         </div>
       </div>
     </div>
