@@ -1,7 +1,6 @@
 import React from "react";
 import breadcrumb from "../../assets/img/breadcrumb.jpg";
 
-
 const informationTable = () => {
   return (
     <>
@@ -31,14 +30,17 @@ const informationTable = () => {
               <div class="contact__widget">
                 <span class="icon_phone"></span>
                 <h4>Phone</h4>
-                <p>+01-3-8888-6868</p>
+                <p>+90-0(312)-219-00-87</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
               <div class="contact__widget">
                 <span class="icon_pin_alt"></span>
                 <h4>Address</h4>
-                <p>60-49 Road 11378 New York</p>
+                <p>
+                  Via Flat İş ve Yaşam Merkezi Beştepe Mah. Nergiz Sok. Bina
+                  No:7 Ofis No:40 Söğütözü Ankara 06560
+                </p>
               </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -52,7 +54,7 @@ const informationTable = () => {
               <div class="contact__widget">
                 <span class="icon_mail_alt"></span>
                 <h4>Email</h4>
-                <p>hello@colorlib.com</p>
+                <p>donmeoglubilisim@gmail.com</p>
               </div>
             </div>
           </div>

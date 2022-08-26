@@ -14,9 +14,9 @@ function Footer() {
               </a>
             </div>
             <ul>
-              <li>Address: 60-49 Road 11378 New York</li>
-              <li>Phone: +65 11.188.888</li>
-              <li>Email: hello@colorlib.com</li>
+              <li>Address: Via Flat İş ve Yaşam Merkezi  Ofis No:40 Söğütözü Ankara</li>
+              <li>Phone: +90-0(312)-219-00-87</li>
+              <li>Email: donmeoglubilisim@gmail.com</li>
             </ul>
           </div>
         </div>
