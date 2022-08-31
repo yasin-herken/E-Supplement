@@ -18,7 +18,7 @@ function Blog() {
     <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
     <Header setIsOpen={setIsOpen} />
     <Hero status={false} show={false} />
-    <Breadbrumb />
+    <Breadbrumb pageName = "Blog"/>
     <BlogSection />
     <Footer />
 </>

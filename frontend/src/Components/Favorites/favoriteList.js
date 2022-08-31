@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from 'react'
+import FavoriteCard from './favoriteCard'
 import Cart1 from "../../assets/img/cart/cart-1.jpg";
 import Cart2 from "../../assets/img/cart/cart-2.jpg";
 import Cart3 from "../../assets/img/cart/cart-3.jpg";
-import ProductCard from './productCard';
-function ShopingCard() {
-
+const FavoriteList = () => {
   return (
     <section className="shoping-cart spad">
     <div className="container">
@@ -16,17 +15,16 @@ function ShopingCard() {
                 <tr>
                   <th className="shoping__product">Products</th>
                   <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th>Add</th>
                   <th />
                 </tr>
               </thead>
               <tbody>
-                <ProductCard imgPath = {Cart1} productName = "Vegetable’s Package" productPrice = "55.00" />
-                <ProductCard imgPath = {Cart2} productName = "Fresh Garden Vegetable" productPrice = "39.99" />
-                <ProductCard imgPath = {Cart2} productName = "Organic Bananas" productPrice = "69.00" />
-                <ProductCard imgPath = {Cart2} productName = "KUŞBAŞI" productPrice = "200.00" />
-                <ProductCard imgPath = {Cart2} productName = "KUŞBAŞI" productPrice = "200.00" />
+                <FavoriteCard imgPath = {Cart1} productName = "Vegetable’s Package" productPrice = "55.00" />
+                <FavoriteCard imgPath = {Cart2} productName = "Fresh Garden Vegetable" productPrice = "39.99" />
+                <FavoriteCard imgPath = {Cart2} productName = "Organic Bananas" productPrice = "69.00" />
+                <FavoriteCard imgPath = {Cart2} productName = "KUŞBAŞI" productPrice = "200.00" />
+                <FavoriteCard imgPath = {Cart2} productName = "KUŞBAŞI" productPrice = "200.00" />
               </tbody>
             </table>
           </div>
@@ -67,4 +65,4 @@ function ShopingCard() {
   )
 }
 
-export default ShopingCard
+export default FavoriteList

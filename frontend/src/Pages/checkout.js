@@ -17,7 +17,7 @@ function Checkout() {
       <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
       <Header setIsOpen={setIsOpen} />
       <Hero status={CHECKOUT_SHOW} show={CHECKOUT_STATUS} />
-      <Breadcrumb />
+      <Breadcrumb pageName = "Checkout"/>
       <CheckoutSection />
       <Footer />
     </>

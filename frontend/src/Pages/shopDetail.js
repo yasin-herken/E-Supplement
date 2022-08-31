@@ -15,7 +15,7 @@ function ShopDetail() {
       <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
       <Header setIsOpen={setIsOpen} />
       <Hero status={SHOP_DETAIL_STATUS} show={SHOP_DETAIL_SHOW}/>
-      <Breadbrumb />
+      <Breadbrumb pageName = "Shop Details"/>
       <ProductDetail />
       <RelatedProduct />
       <Footer />

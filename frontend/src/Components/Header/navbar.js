@@ -61,7 +61,7 @@ function Navbar({ setIsOpen }) {
           <div className="header__cart">
             <ul>
               <li>
-                <NavLink to="#">
+                <NavLink to="/favorites">
                   <i className="fa fa-heart" /> <span>1</span>
                 </NavLink>
               </li>

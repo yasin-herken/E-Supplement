@@ -50,7 +50,7 @@ function Topbar() {
               </div>
               <div className="header__top__right__auth">
                 <Popup
-                  trigger={<Button className="fa fa-user"> Login </Button>}
+                  trigger={<button className="fa fa-user login-button" > Login </button>}
                   position="left top"
                 >
                   <Login />

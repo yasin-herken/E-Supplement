@@ -14,7 +14,7 @@ import ProductSidebar from "../ProductSidebar/productSidebar";
 import ItemFilter from "../ItemFilter/itemFilter";
 import ProductItem from "../ProductItem/productItem";
 
-const productMenu = () => {
+const ProductMenu = () => {
   return (
     <>
       <section className="product spad">
@@ -79,4 +79,4 @@ const productMenu = () => {
   );
 };
 
-export default productMenu;
+export default ProductMenu;
