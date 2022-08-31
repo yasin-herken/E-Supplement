@@ -16,7 +16,7 @@ function ShopingCard() {
       <Humberger isOpen={isOpen} setIsOpen={setIsOpen}/>
       <Header setIsOpen={setIsOpen}/>
       <Hero status={SHOPING_CARD_STATUS} show={SHOPING_CARD_SHOW} />
-      <Breadcrumb />
+      <Breadcrumb pageName = "Shopping Cart"/>
       <ShopingCards />
       <Footer />
     </>
