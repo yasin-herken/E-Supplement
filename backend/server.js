@@ -11,7 +11,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const connection_url =  "mongodb+srv://admin:" + process.env.MONGO_PASSWORD + "@cluster0.mj82ul2.mongodb.net/shop?retryWrites=true&w=majority";
+const connection_url =  "mongodb+srv://tarik:" + process.env.MONGO_PASSWORD + "@cluster0.ymimfnq.mongodb.net/Shop?retryWrites=true&w=majority";
 
 mongoose.connect(connection_url, {
     useNewUrlParser: true,

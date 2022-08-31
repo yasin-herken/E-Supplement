@@ -9,7 +9,7 @@ import {
 import express from "express";
 const router = express.Router();
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+/*router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product(req.body);
   
     try {
@@ -54,10 +54,11 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+  });*/
   
   //GET ALL PRODUCTS
-  router.get("/", async (req, res) => {
+  router.get("/all", async (req, res) => {
+    console.log("hi")
     const qNew = req.query.new;
     const qCategory = req.query.category;
     try {
@@ -74,7 +75,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
       } else {
         products = await Product.find();
       }
-  
+      console.log(products);
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);

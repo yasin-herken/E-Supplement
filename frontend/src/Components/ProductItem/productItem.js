@@ -1,6 +1,10 @@
 import React from "react";
 
 const productItem = (props) => {
+
+  var price = parseFloat(props.productPrice);
+  price = price.toFixed(2);
+
   return (
     <>
       <div className="product__item">
@@ -30,7 +34,7 @@ const productItem = (props) => {
                       <h6>
                         <a href="#">{props.productName}</a>
                       </h6>
-                      <h5>${props.productPrice}</h5>
+                      <h5>${price}</h5>
                     </div>
       </div>
     </>
