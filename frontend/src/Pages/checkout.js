@@ -6,6 +6,8 @@ import Breadcrumb from "../Components/Breadcrumb/breadbrumb.js";
 
 import Footer from "../Components/Footer/footer.js";
 import CheckoutSection from '../Components/Checkout/checkoutSection.js';
+import {CHECKOUT_SHOW} from "./defaultPageOption/showImg.js";
+import {CHECKOUT_STATUS} from "./defaultPageOption/status.js";
 function Checkout() {
   const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
@@ -14,7 +16,7 @@ function Checkout() {
     <>
       <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
       <Header setIsOpen={setIsOpen} />
-      <Hero status={false} show={false} />
+      <Hero status={CHECKOUT_SHOW} show={CHECKOUT_STATUS} />
       <Breadcrumb />
       <CheckoutSection />
       <Footer />

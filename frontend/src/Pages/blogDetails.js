@@ -7,6 +7,8 @@ import Footer from "../Components/Footer/footer.js";
 import BlogDetailsHero from '../Components/Hero/blogDetailsHero.js';
 import BlogDetailsSection from '../Components/BlogDetails/blogDetailsSection.js';
 import RelatedBlog from '../Components/RelatedBlog/relatedBlog.js';
+import {BLOG_DETAIL_SHOW} from "./defaultPageOption/showImg.js";
+import {BLOG_DETAIL_STATUS} from "./defaultPageOption/status.js";
 function BlogDetails() {
     const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
@@ -15,7 +17,7 @@ function BlogDetails() {
         <>
             <Humberger isOpen={isOpen} setIsOpen={setIsOpen} />
             <Header setIsOpen={setIsOpen} />
-            <Hero status={false} show={false} />
+            <Hero status={BLOG_DETAIL_STATUS} show={BLOG_DETAIL_SHOW} />
             <BlogDetailsHero />
             <BlogDetailsSection />
             <RelatedBlog />

@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../assets/img/logo.png';
-import { NavLink ,Link} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function Navbar({ setIsOpen }) {
   let isOpen = false;
   const humbergerHandler = (e) => {
@@ -66,7 +66,7 @@ function Navbar({ setIsOpen }) {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="#">
+                <NavLink to="/shoping-card">
                   <i className="fa fa-shopping-bag" /> <span>3</span>
                 </NavLink>
               </li>

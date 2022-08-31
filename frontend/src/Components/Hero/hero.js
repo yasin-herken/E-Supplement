@@ -1,7 +1,6 @@
 import React from 'react'
 import Categories from './categories'
 import Search from './search'
-
 function Hero({status,show}) {
   return (
     <section className="hero">
