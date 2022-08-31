@@ -65,8 +65,7 @@ router.post("/login", async (req,res)=>{
             role: user.role,
             id: user._id
         }
-        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "1d" })
-
+        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "1h" })
         return res.status(200).send({
             success: true,
             message: "Logged in successfully",

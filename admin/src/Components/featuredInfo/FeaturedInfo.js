@@ -2,24 +2,24 @@ import React,{useState,useEffect} from 'react'
 
 import "./FeaturedInfo.css";
 import {ArrowDownward,ArrowUpward} from '@mui/icons-material';
-
 import {userRequest} from "../../requestMethod.js";
+import {useSelector} from "react-redux";
+import {selectUser} from "../../Pages/Features/userSlice.js";
 function FeaturedInfo() {
     const [income, setIncome] = useState([]);
     const [perc, setPerc] = useState(0);
-
+    const user = useSelector(selectUser)
     useEffect(()=>{
         const getIncome = async() =>{
             try {
-                const res = await userRequest.get("orders/income");
+                const res = await userRequest(user.token.split(" ")[1]).get("orders/income");
                 setIncome(res.data);
                 setPerc((res.data[1].total*100/res.data[0].total-100))
             }catch{
-
             }
         };
         getIncome();
-    },[])
+    },[user])
   return (
     <div className="featured">
       <div className="featuredItem">
