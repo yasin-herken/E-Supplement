@@ -58,14 +58,14 @@ const login = () => {
             ></input>
           </Form.Group>
         </div>
-        <Button
+        <button
         /*  disabled={formData.email === "" || formData.password === ""}*/
           type="submit"
-          className=" btn mt-3"
+          className="btn mt-3"
         >
           {" "}
           Login
-        </Button>
+        </button>
 
       </Form>
     </div>
