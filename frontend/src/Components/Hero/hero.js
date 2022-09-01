@@ -1,20 +1,20 @@
 import React,{useState, useEffect} from "react";
 import Categories from "./categories";
 import Search from "./search";
-import { productList } from "../../Axios";
+import { categoryList } from "../../Axios";
 
 function Hero({ status, show }) {
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const fetchProducts = () => {
-    productList(products)
+    categoryList(categories)
       .then((res) => {
-        console.log(res);
-        setProducts(res.data);
+        console.log(res.data);
+        setCategories(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -22,18 +22,18 @@ function Hero({ status, show }) {
   };
   
   // category determination
-   var categoriesArr = [];
+ /*  var categoriesArr = [];
   products.map(
     (m) => (categoriesArr = categoriesArr.concat(m.categories))
   );
   
-  const withoutDuplicates = [...new Set(categoriesArr)];
+  const withoutDuplicates = [...new Set(categoriesArr)];*/
 
   return (
     <section className="hero">
       <div className="container">
         <div className="row">
-          <Categories show={show} categories={withoutDuplicates} />
+          <Categories show={show} categories={categories} />
           <Search status={status} />
         </div>
       </div>

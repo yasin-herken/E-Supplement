@@ -9,6 +9,8 @@ const HTTP = axios.create({
 
 export const register = async (formData) =>
   await HTTP.post("/users/signup", formData);*/
+  export const productList = async (cat,formData) =>
+  await HTTP.get(cat  ? `/api/products/all?category=${cat}` : "/api/products/all", formData);
 
-  export const productList = async (formData) =>
-  await HTTP.get("/api/products/all", formData);
+  export const categoryList = async (formData) =>
+  await HTTP.get("/api/categories/all", formData);

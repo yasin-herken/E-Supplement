@@ -58,9 +58,10 @@ const router = express.Router();
   
   //GET ALL PRODUCTS
   router.get("/all", async (req, res) => {
-    console.log("hi")
+   
     const qNew = req.query.new;
     const qCategory = req.query.category;
+   
     try {
       let products;
   
@@ -75,11 +76,25 @@ const router = express.Router();
       } else {
         products = await Product.find();
       }
-      console.log(products);
+      //console.log(products);
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);
     }
   });
+
+ /*  //GET ALL PRODUCTS FROM A CATEGORY
+   router.get("/all/:category", async (req, res) => {
+     console.log("ehe")
+     products = await Product.find(function(data){
+      var element = [];
+      if(data.categories.includes({category}))
+         element.add(data)
+         
+      return data;
+     })
+     console.log(products,3)
+     res.status(200).json(products);
+  });*/
 
   export default router;

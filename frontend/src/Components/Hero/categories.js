@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./hero.css";
-function Categories({ show,categories }) {
+
+function Categories(props) {
   const [active, setActive] = useState(true);
   const [shake, setShake] = useState(false);
   const dropdownHandler = (e) => {
@@ -10,12 +12,16 @@ function Categories({ show,categories }) {
     setTimeout(() => setShake(false), 2000);
   };
   useEffect(() => {
-    if (show) {
+    if (props.show) {
       setActive(true);
     } else {
       setActive(false);
     }
-  }, [show]);
+  }, [props.show]);
+
+ 
+
+
   return (
     <div className="col-lg-3">
       <div className="hero__categories" onClick={dropdownHandler}>
@@ -27,9 +33,12 @@ function Categories({ show,categories }) {
           className={shake ? `shake` : null}
           style={{ display: active ? "block" : "none" }}
         >
-          {categories.map((item) => (
+          {props.categories.map((item) => (
             <li>
-              <a href="#">{item}</a>
+              <Link to="/shop" onClick={() =>{
+               // props.setCat({item})
+                console.log("clicked")
+              }}>{item.category}</Link>
             </li>
           ))}
        

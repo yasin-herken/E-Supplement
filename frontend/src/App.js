@@ -10,6 +10,7 @@ import Shop from './Pages/shop';
 import BlogDetails from './Pages/blogDetails';
 import Blog from './Pages/blog';
 import Favorites from './Pages/favorites';
+
 function App() {
   return (
     <Routes>

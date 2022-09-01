@@ -13,12 +13,10 @@ const productSidebar = (props) => {
     <>
       <div className="sidebar">
         <div className="row">
-          <Categories categories={props.categories} show={HOME_SHOW} />
+          <Categories show={HOME_SHOW} categories={props.categories} />
         </div>
 
         <PriceSlider />
-        <ColorTable />
-        <SizeTable />
         <LatestProduct />
       </div>
     </>

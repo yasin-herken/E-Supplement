@@ -14,7 +14,7 @@ const PriceSlider = () => {
   };
 
   useEffect(() => {
-    console.log(val);
+    //console.log(val);
   });
 
   return (

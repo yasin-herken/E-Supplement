@@ -3,37 +3,55 @@ import product1 from "../../assets/img/product/product-1.jpg";
 import ProductSidebar from "../ProductSidebar/productSidebar";
 import ItemFilter from "../ItemFilter/itemFilter";
 import ProductItem from "../ProductItem/productItem";
-import { productList } from "../../Axios";
+import { productList, categoryList } from "../../Axios";
+import { useLocation } from "react-router-dom";
+import ProductTable from "../ProductTable/productTable";
 
-
-const ProductMenu = () => {
+const ProductMenu = (props) => {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [filter,setFilter] = useState({});
+
+
+  const location = useLocation()
+  //console.log(location.pathname)
+
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilter({
+      ...filter,
+      [e.target.name] : value,
+    })
+  }
+
+  //console.log(filter.category);
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  //console.log(props.cat.item);
+
   const fetchProducts = () => {
-    productList(products)
+  /*  productList(null, products)
       .then((res) => {
-        console.log(res);
+      //  console.log(res.data);
+      //  console.log("fetchProducts");
         setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });*/
+
+    categoryList(categories)
+      .then((res) => {
+       // console.log(res.data);
+        setCategories(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  
-  // category determination
-   var categoriesArr = [];
-  products.map(
-    (m) => (categoriesArr = categoriesArr.concat(m.categories))
-  );
-  
-  const withoutDuplicates = [...new Set(categoriesArr)];
-  console.log(withoutDuplicates);
-
-  
 
   return (
     <>
@@ -41,21 +59,38 @@ const ProductMenu = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-5">
-              <ProductSidebar categories = {withoutDuplicates}/>
+              <ProductSidebar categories={categories} />
             </div>
             <div className="col-lg-9 col-md-7">
-              <ItemFilter />
-              <div className="row">
-                {products.map((item) => (
-                  <div className="col-lg-4 col-md-6 col-sm-6">
-                    <ProductItem
-                      imgPath={product1}
-                      productName={item.title}
-                      productPrice={item.price}
-                    />
+              <div className="filter__item">
+                <div className="row">
+                  <div className="col-lg-4 col-md-5">
+                    <div className="filter__sort">
+                      <span> CATEGORIES </span>
+                      <select name="category" onChange={handleFilters}>
+                        {categories.map((item) => (
+                          <option>{item.category}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                ))}
+                  <div className="col-lg-4 col-md-4">
+                    <div className="filter__found">
+                      <h6>
+                        <span>16</span> Products found
+                      </h6>
+                    </div>
+                  </div>
+                  <div className="col-lg-4 col-md-3">
+                    <div className="filter__option">
+                      <span className="icon_grid-2x2"></span>
+                      <span className="icon_ul"></span>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <ProductTable  filters={filter}  />
+         
               <div className="product__pagination">
                 <a href="#">1</a>
                 <a href="#">2</a>
