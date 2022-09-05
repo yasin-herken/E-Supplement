@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import bcrypt from "bcryptjs";
 import {
   verifyToken,
   verifyTokenAndAuthorization,
@@ -88,6 +89,31 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
     res.status(200).json(data)
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post("/signup", async (req, res) => {
+  try {
+    console.log(req.body)
+    const { username, password, phoneNumber, email } = req.body;
+
+    const userExists = await User.findOne({ email });
+    if (userExists)
+      return res.status(400).json({ message: "User already exists." });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const createdUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      phoneNumber,
+    });
+
+    return res.status(201).json({user :createdUser, message :"you are successfully registered"});
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: "create user failed" });
   }
 });
 

@@ -5,7 +5,7 @@ import User from "../models/User.js";
 import dotenv from 'dotenv/config';
 const router = express.Router()
 
-router.post("/register",async (req,res)=>{
+/*router.post("/register",async (req,res)=>{
     User.findOne({username:req.body.username}, async (err,data)=>{
         if(err) throw err;
         if(data){
@@ -41,16 +41,19 @@ router.post("/register",async (req,res)=>{
             });
         }
     });
-});
+});*/
 
 router.post("/login", async (req,res)=>{
     User.findOne({ username: req.body.username }).then(user => {
         //No user found
+        
         if (!user) {
+            console.log("NO USER");
             return res.status(401).send({
                 success: false,
                 message: "Could not find the user"
             })
+            
         }
 
         if (!bcrypt.compareSync(req.body.password, user.password)) {
@@ -65,12 +68,13 @@ router.post("/login", async (req,res)=>{
             role: user.role,
             id: user._id
         }
+        
         const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "1h" })
         return res.status(200).send({
             success: true,
             message: "Logged in successfully",
             token: "Bearer " + token,
-            username: user.username,
+            user : user,
             role: user.role
         })
     })

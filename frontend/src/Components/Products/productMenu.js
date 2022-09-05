@@ -6,11 +6,14 @@ import ProductItem from "../ProductItem/productItem";
 import { productList, categoryList } from "../../Axios";
 import { useLocation } from "react-router-dom";
 import ProductTable from "../ProductTable/productTable";
+import PriceSlider from "../ProductSidebar/priceSlider";
+import { Form , Option} from "react-bootstrap";
 
 const ProductMenu = (props) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filter,setFilter] = useState({});
+  const [filter,setFilter] = useState({category : "vitamin"});
+  const[price,setPrice] = useState([])
 
 
   const location = useLocation()
@@ -33,16 +36,6 @@ const ProductMenu = (props) => {
   //console.log(props.cat.item);
 
   const fetchProducts = () => {
-  /*  productList(null, products)
-      .then((res) => {
-      //  console.log(res.data);
-      //  console.log("fetchProducts");
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });*/
-
     categoryList(categories)
       .then((res) => {
        // console.log(res.data);
@@ -53,33 +46,46 @@ const ProductMenu = (props) => {
       });
   };
 
+  useEffect(() => {
+    console.log(price);
+  }, [price]);
+
+   const priceHandler = (a) => {
+    setPrice(a);
+    setFilter({
+      ...filter,
+      price : price,
+    })
+   
+  }
+
+
+
   return (
     <>
       <section className="product spad">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-5">
-              <ProductSidebar categories={categories} />
+            {/*<ProductSidebar categories={categories} />*/} 
             </div>
             <div className="col-lg-9 col-md-7">
+         
+             {/* FILTER MENU*/}
               <div className="filter__item">
                 <div className="row">
                   <div className="col-lg-4 col-md-5">
                     <div className="filter__sort">
                       <span> CATEGORIES </span>
-                      <select name="category" onChange={handleFilters}>
+                      <Form.Select name="category" aria-label="Default select example" onChange={handleFilters}>
                         {categories.map((item) => (
-                          <option>{item.category}</option>
+                          <option key={item.id}>{item.category}</option>
                         ))}
-                      </select>
+                      </Form.Select>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4">
-                    <div className="filter__found">
-                      <h6>
-                        <span>16</span> Products found
-                      </h6>
-                    </div>
+                    <PriceSlider priceHandler = {priceHandler}/>
                   </div>
                   <div className="col-lg-4 col-md-3">
                     <div className="filter__option">
@@ -89,7 +95,8 @@ const ProductMenu = (props) => {
                   </div>
                 </div>
               </div>
-              <ProductTable  filters={filter}  />
+              {/* FILTER MENU ENDS*/}
+              <ProductTable  filters={filter}/>
          
               <div className="product__pagination">
                 <a href="#">1</a>

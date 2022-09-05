@@ -15,8 +15,6 @@ const productSidebar = (props) => {
         <div className="row">
           <Categories show={HOME_SHOW} categories={props.categories} />
         </div>
-
-        <PriceSlider />
         <LatestProduct />
       </div>
     </>
