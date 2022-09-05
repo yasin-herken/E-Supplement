@@ -68,6 +68,7 @@ const Signup = () => {
       ...formData,
       phoneNumber: phone,
     });
+
   };
 
   return (
@@ -180,7 +181,12 @@ const Signup = () => {
                           }}
                           country={"tr"}
                           value={phone}
-                          onChange={setPhone}            
+                          onChange={setPhone}
+                          inputExtraProps={{
+                            name: "phone",
+                            required: true,
+                            autoFocus: true
+                          }}
                         />
                         <label class="form-label" for="phoneNumber">
                           Phone Number
@@ -197,11 +203,12 @@ const Signup = () => {
                         password === "" ||
                         username === "" ||
                         email === "" ||
-                        !(password === cPassword)
+                        !(password === cPassword) ||
+                        phone === ""
                       }
                       onClick={handlePhone}
                     >
-                      LOG IN
+                      SIGN UP
                     </Button>
                   </div>
                 </Form>
