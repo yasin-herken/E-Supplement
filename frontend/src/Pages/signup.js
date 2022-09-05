@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import "../Components/Login/login.css";
 import { useNavigate } from "react-router-dom";
 import { register } from "../Axios";
-import { Form , Button} from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
+  const [value, setValue] = useState("");
+  const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [cPasswordClass, setCPasswordClass] = useState("form-control");
   const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
@@ -19,7 +25,7 @@ const Signup = () => {
       if (password === cPassword) {
         setShowErrorMessage(false);
         setCPasswordClass("form-control is-valid");
-       // console.log(password)
+        // console.log(password)
       } else {
         setShowErrorMessage(true);
         setCPasswordClass("form-control is-invalid");
@@ -34,10 +40,34 @@ const Signup = () => {
 
   const handlePassword = (e) => {
     setFormData({
-        ...formData,
-        password: e.target.value,
-      }) 
-       setPassword(e.target.value)
+      ...formData,
+      password: e.target.value,
+    });
+    setPassword(e.target.value);
+  };
+
+  const handleUsername = (e) => {
+    setFormData({
+      ...formData,
+      username: e.target.value,
+    });
+    setUsername(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setFormData({
+      ...formData,
+      email: e.target.value,
+    });
+    setEmail(e.target.value);
+    console.log(phone);
+  };
+
+  const handlePhone = (e) => {
+    setFormData({
+      ...formData,
+      phoneNumber: phone,
+    });
   };
 
   return (
@@ -67,13 +97,9 @@ const Signup = () => {
                         <input
                           type="text"
                           id="firstName"
+                          s
                           class="form-control form-control-lg"
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              username: e.target.value,
-                            })
-                          }
+                          onChange={handleUsername}
                         />
                         <label class="form-label" for="firstName">
                           First Name
@@ -94,10 +120,13 @@ const Signup = () => {
                     </div>
                   </div>
                   {showErrorMessage && isCPasswordDirty ? (
-                      <div style={{color: "red"}}> Passwords did not match </div>
-                    ) : (
-                      ""
-                    )}
+                    <div style={{ color: "red" }}>
+                      {" "}
+                      Passwords did not match{" "}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <div class="row">
                     <div class="col-md-6 mb-4 pb-2">
                       <div class="form-outline">
@@ -112,7 +141,7 @@ const Signup = () => {
                         </label>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-4 pb-2">              
+                    <div class="col-md-6 mb-4 pb-2">
                       <div class="form-outline">
                         <input
                           type="password"
@@ -126,7 +155,6 @@ const Signup = () => {
                         </label>
                       </div>
                     </div>
-                 
                   </div>
 
                   <div class="row">
@@ -136,9 +164,7 @@ const Signup = () => {
                           type="email"
                           id="emailAddress"
                           class="form-control form-control-lg"
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
+                          onChange={handleEmail}
                         />
                         <label class="form-label" for="emailAddress">
                           Email
@@ -147,16 +173,14 @@ const Signup = () => {
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
                       <div class="form-outline">
-                        <input
-                          type="tel"
-                          id="phoneNumber"
-                          class="form-control form-control-lg"
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              phoneNumber: e.target.value,
-                            })
-                          }
+                        <PhoneInput
+                          inputStyle={{
+                            width: "100%",
+                            height: "45px",
+                          }}
+                          country={"tr"}
+                          value={phone}
+                          onChange={setPhone}            
                         />
                         <label class="form-label" for="phoneNumber">
                           Phone Number
@@ -166,8 +190,18 @@ const Signup = () => {
                   </div>
 
                   <div>
-                    <Button variant="success" type="submit"  disabled={formData.email === "" || formData.password === "" || formData.phoneNumber === "" || formData.username === "" || !(password === cPassword)}>
-                      Sign Up
+                    <Button
+                      variant="success"
+                      type="submit"
+                      disabled={
+                        password === "" ||
+                        username === "" ||
+                        email === "" ||
+                        !(password === cPassword)
+                      }
+                      onClick={handlePhone}
+                    >
+                      LOG IN
                     </Button>
                   </div>
                 </Form>
