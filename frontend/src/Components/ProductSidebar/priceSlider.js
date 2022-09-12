@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { Form, Button } from "react-bootstrap";
 
-const PriceSlider = () => {
+const PriceSlider = ({priceHandler}) => {
   const [val, setVal] = useState({min : 0,
                                      max :100});
 
@@ -11,11 +11,14 @@ const PriceSlider = () => {
     const newData = {min : data[0],
     max : data[1]}
     setVal(newData) 
+    priceHandler([parseFloat(val.min),parseFloat(val.max)])
   };
 
   useEffect(() => {
-    console.log(val);
-  });
+    //priceHandler([val.min,val.max])
+    //priceHandler([parseFloat(val.min),parseFloat(val.max)])
+    
+  },[val]);
 
   return (
     <>

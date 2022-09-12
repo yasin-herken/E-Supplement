@@ -9,7 +9,7 @@ import {
 import express from "express";
 const router = express.Router();
 
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+/*router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product(req.body);
   
     try {
@@ -44,12 +44,13 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  });
+  });*/
   
   //GET PRODUCT
   router.get("/find/:id", async (req, res) => {
     try {
       const product = await Product.findById(req.params.id);
+      //console.log (product)
       res.status(200).json(product);
     } catch (err) {
       res.status(500).json(err);
@@ -57,9 +58,11 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
   });
   
   //GET ALL PRODUCTS
-  router.get("/", async (req, res) => {
+  router.get("/all", async (req, res) => {
+   
     const qNew = req.query.new;
     const qCategory = req.query.category;
+   
     try {
       let products;
   
@@ -74,11 +77,25 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
       } else {
         products = await Product.find();
       }
-  
+      //console.log(products);
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);
     }
   });
+
+ /*  //GET ALL PRODUCTS FROM A CATEGORY
+   router.get("/all/:category", async (req, res) => {
+     console.log("ehe")
+     products = await Product.find(function(data){
+      var element = [];
+      if(data.categories.includes({category}))
+         element.add(data)
+         
+      return data;
+     })
+     console.log(products,3)
+     res.status(200).json(products);
+  });*/
 
   export default router;

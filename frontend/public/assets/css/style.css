@@ -3481,7 +3481,7 @@ ol {
     font-weight: 300;
   }
   .btnn:hover, .btn:focus {
-    color: #7fad39;
+    
     outline: 0;
   }
 .third {
@@ -3493,4 +3493,25 @@ ol {
   }
   .third:hover {
     box-shadow: 0 0 10px 0 #7fad39 inset, 0 0 10px 4px #7fad39;
+	color: #7fad39;
+  }
+
+  .fourth {
+    border-color: #7fad39;
+    color: #000a06;
+    box-shadow: 0 0 40px 40px #7fad39 inset, 0 0 0 0 #ffffff;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .fourth:hover {
+	border-color: #7fad39;
+    color: #ffffff;
+  }
+
+  .fourth:disabled {
+	border-color: #dddddd;
+    color: #b2b2b2;
+	
+	box-shadow: 0 0 40px 40px #dddddd inset, 0 0 0 0 #ffffff;
+    -webkit-transition: all 150ms ease-in-out;
   }

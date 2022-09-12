@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-function Categories() {
+function CategoriesSlider( props ) {
     return (
         <section className="categories">
             <div className="container">
@@ -34,6 +34,7 @@ function Categories() {
                                 </div>
                             </div>
                         </SwiperSlide>
+                        
                         <SwiperSlide>
                             <div className="col-lg-3">
                                 <div
@@ -87,4 +88,4 @@ function Categories() {
     )
 }
 
-export default Categories
+export default CategoriesSlider

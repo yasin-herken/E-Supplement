@@ -10,12 +10,20 @@ import Shop from './Pages/shop';
 import BlogDetails from './Pages/blogDetails';
 import Blog from './Pages/blog';
 import Favorites from './Pages/favorites';
+import SignUp from './Pages/signup';
+import { useSelector } from "react-redux";
+import ProductDetails from './Pages/productDetails';
+
 function App() {
+  const user = useSelector((state) => state.user.currentUser);
+  console.log(user)
+  
   return (
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/shop-detail" element={<ShopDetail />}/>
       <Route path="/shop" element={<Shop />}/>
+      <Route path="/signup" element={<SignUp />}/>
       <Route path="/contact" element={<Contact />}/>
       <Route path="/shop-grid" element={<ShopGrid />} />
       <Route path="/shoping-card" element={<ShopingCard />} />
@@ -23,6 +31,7 @@ function App() {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/blog-details" element={<BlogDetails />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/product-details" element={<ProductDetails/>} />
     </Routes>
     
   );

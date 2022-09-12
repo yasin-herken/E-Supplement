@@ -3,8 +3,18 @@ import Language from "../../assets/img/language.png";
 import { Button } from "react-bootstrap";
 import Popup from "reactjs-popup";
 import Login from "../Login/login";
+import { useSelector,useDispatch } from "react-redux";
+import {logout} from "../../redux/userRedux.js"
 
 function Topbar() {
+  const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(logout())
+  };
+
   return (
     <div className="header__top">
       <div className="container">
@@ -49,12 +59,26 @@ function Topbar() {
                 </ul>
               </div>
               <div className="header__top__right__auth">
-                <Popup
-                  trigger={<button className="fa fa-user login-button" > Login </button>}
-                  position="left top"
-                >
-                  <Login />
-                </Popup>
+                {}
+                {user ? (
+                  <div> {user.user.username}
+                  <Button onClick={handleClick}> LogOut</Button>
+                  </div>
+                  
+                  
+                ) : (
+                  <Popup
+                    trigger={
+                      <button className="fa fa-user login-button">
+                        {" "}
+                        Login{" "}
+                      </button>
+                    }
+                    position="left top"
+                  >
+                    <Login />
+                  </Popup>
+                )}
               </div>
             </div>
           </div>
