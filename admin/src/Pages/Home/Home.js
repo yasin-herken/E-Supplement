@@ -1,13 +1,16 @@
-import React,{useMemo,useState,useEffect} from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import FeaturedInfo from "../../Components/featuredInfo/FeaturedInfo.js";
 import Chart from "../../Components/Chart/Chart.js";
 import { userData } from "../../dummyData";
 import { userRequest } from '../../requestMethod.js';
 import "./Home.css";
-import {useSelector} from "react-redux";
-import {selectUser} from "../../Pages/Features/userSlice.js";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../Pages/Features/userSlice.js";
 import WidgetSm from "../../Components/WidgetSm/WidgetSm";
 import WidgetLg from "../../Components/WidgetLg/WidgetLg";
+import Topbar from '../../Components/Topbar/topbar.js';
+import Sidebar from '../../Components/Sidebar/sidebar.js';
+import "../../App.css";
 function Home() {
   const [userStats, setUserStats] = useState([]);
   const user = useSelector(selectUser)
@@ -38,24 +41,34 @@ function Home() {
             { name: MONTHS[item._id - 1], "Active User": item.total },
           ])
         );
-      } catch {}
+      } catch (err) {
+        console.log(err)
+      }
     };
     getStats();
-  }, [MONTHS,user]);
+  }, [MONTHS, user]);
   return (
-    <div className='home'>
-        <FeaturedInfo />
-        <Chart 
-          data={userData}
-          title="User Analytics"
-          grid
-          dataKey="Active User"
-        />
-        <div className="homeWidgets">
-        <WidgetSm />
-        <WidgetLg />
+    <>
+      <Topbar />
+      <div className='container'>
+        <Sidebar />
+        <div className="home">
+          <FeaturedInfo />
+          <Chart
+            data={userStats}
+            title="User Analytics"
+            grid
+            dataKey="Active User"
+          />
+          <div className="homeWidgets">
+            <WidgetSm />
+            <WidgetLg />
+          </div>
+        </div>
       </div>
-    </div>
+
+    </>
+
   )
 }
 
