@@ -5,7 +5,6 @@ import "./userList.css";
 import Sidebar from '../../Components/Sidebar/sidebar.js';
 import { userRows } from "../../dummyData.js";
 import { DataGrid } from "@mui/x-data-grid";
-import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 function UserList() {
   const [data, setData] = useState(userRows);
@@ -50,10 +49,10 @@ function UserList() {
             <Link to={"/user/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
-            <DeleteOutline
+            {/* <DeleteOutline
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
-            />
+            /> */}
           </>
         );
       },
