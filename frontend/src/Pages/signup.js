@@ -5,13 +5,12 @@ import { register } from "../Axios";
 import { Form, Button } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { createCart } from "../Axios";
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
-
   const [password, setPassword] = useState("");
-  const [value, setValue] = useState("");
   const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +67,6 @@ const Signup = () => {
       ...formData,
       phoneNumber: phone,
     });
-
   };
 
   return (
@@ -87,6 +85,16 @@ const Signup = () => {
                     register(formData)
                       .then((res) => {
                         alert("successfully registered");
+                        console.log(res.data.user._id);
+                        //   setId(res.data.user._id)
+                        //   console.log(id);
+                        //   setCart({ , userId: res.data.user._id });
+                        //    console.log(cart.userId);
+                        createCart({ userId: res.data.user._id, products: [] })
+                          .then((res) => {
+                            console.log("cart is created");
+                          })
+                          .catch((err) => console.log(err.response.data));
                         navigate("/");
                       })
                       .catch((err) => alert(err.response.data.message));
@@ -185,8 +193,9 @@ const Signup = () => {
                           inputExtraProps={{
                             name: "phone",
                             required: true,
-                            autoFocus: true
+                            autoFocus: true,
                           }}
+                          isValid={(v) => v === "1"}
                         />
                         <label class="form-label" for="phoneNumber">
                           Phone Number

@@ -12,10 +12,12 @@ import Blog from './Pages/blog';
 import Favorites from './Pages/favorites';
 import SignUp from './Pages/signup';
 import { useSelector } from "react-redux";
+import ProductDetails from './Pages/productDetails';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
   console.log(user)
+  
   return (
     <Routes>
       <Route path="/" element={<Home />}/>
@@ -29,6 +31,7 @@ function App() {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/blog-details" element={<BlogDetails />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/product-details" element={<ProductDetails/>} />
     </Routes>
     
   );

@@ -37,7 +37,7 @@ function Categories(props) {
             <li>
               <Link to="/shop" onClick={() =>{
                // props.setCat({item})
-                console.log("clicked")
+                //console.log("clicked")
               }}>{item.category}</Link>
             </li>
           ))}

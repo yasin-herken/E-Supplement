@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Logo from '../../assets/img/logo.png';
 import Language from '../../assets/img/language.png';
-import "./humberger.css";
+
 function Humberger({isOpen,setIsOpen}) {
     const humbergerHandler = (e) =>{
         e.preventDefault()

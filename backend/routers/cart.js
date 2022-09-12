@@ -1,5 +1,5 @@
 
-import Cart from "../models/Order.js";
+import Cart from "../models/Cart.js";
 import {
   verifyToken,
   verifyTokenAndAuthorization,
@@ -12,11 +12,13 @@ import express from "express";
 const router = express.Router();
 //CREATE
 
-router.post("/", verifyToken, async (req, res) => {
-    const newCart = new Cart(req.body);
-  
+router.post("/", async (req, res) => {
+  //console.log("I TRY 1")  
+  const newCart = new Cart(req.body);
+  //console.log("I TRY 2")
     try {
       const savedCart = await newCart.save();
+      //console.log("I TRY")
       res.status(200).json(savedCart);
     } catch (err) {
       res.status(500).json(err);
@@ -24,7 +26,7 @@ router.post("/", verifyToken, async (req, res) => {
   });
   
   //UPDATE
-  router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedCart = await Cart.findByIdAndUpdate(
         req.params.id,
@@ -33,6 +35,8 @@ router.post("/", verifyToken, async (req, res) => {
         },
         { new: true }
       );
+      console.log("Güncelledi")
+      console.log(updatedCart)
       res.status(200).json(updatedCart);
     } catch (err) {
       res.status(500).json(err);
@@ -40,7 +44,7 @@ router.post("/", verifyToken, async (req, res) => {
   });
   
   //DELETE
-  router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       await Cart.findByIdAndDelete(req.params.id);
       res.status(200).json("Cart has been deleted...");
@@ -50,7 +54,8 @@ router.post("/", verifyToken, async (req, res) => {
   });
   
   //GET USER CART
-  router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+  router.get("/find/:userId", async (req, res) => {
+    //console.log("geldi")
     try {
       const cart = await Cart.findOne({ userId: req.params.userId });
       res.status(200).json(cart);

@@ -12,3 +12,8 @@ const HTTP = axios.create({
 
   export const register = async (formData) =>
   await HTTP.post("/api/users/signup", formData);
+
+  export const createCart = async (cart) =>
+  await HTTP.post("/api/carts/", cart);
+
+  

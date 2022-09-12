@@ -31,12 +31,12 @@ const ProductTable = (props) => {
   }, [props.filters.category]);
 
   useEffect(() => {
-    console.log("hi");
+    //console.log("hi");
     max = props.filters.price ? props.filters.price[1] : 1000.0;
-    console.log(max);
-    console.log(filteredProducts);
+    //console.log(max);
+    //console.log(filteredProducts);
     props.filters.category && setFilteredProducts(products.filter(p => p.price < max))
-    console.log(filteredProducts);
+    //console.log(filteredProducts);
   }, [props.filters.price,props.filters.category]);
 
   return (
@@ -44,9 +44,10 @@ const ProductTable = (props) => {
       {filteredProducts.map((item) => (
         <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
           <ProductItem 
-            imgPath={product1}s
+            imgPath={product1}
             productName={item.title}
             productPrice={item.price}
+            productId = {item._id}
           />
         </div>
       ))}
