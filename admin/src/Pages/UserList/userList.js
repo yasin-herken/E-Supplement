@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Topbar from "../../Components/Topbar/topbar.js";
-import "../../App.css";
-import "./userList.css";
 import Sidebar from '../../Components/Sidebar/sidebar.js';
+import { DeleteOutline } from '@mui/icons-material';
 import { userRows } from "../../dummyData.js";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import "./userList.css";
+import "../../App.css";
 function UserList() {
   const [data, setData] = useState(userRows);
 
@@ -49,10 +50,10 @@ function UserList() {
             <Link to={"/user/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
-            {/* <DeleteOutline
+            <DeleteOutline
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
-            /> */}
+            />
           </>
         );
       },
@@ -68,7 +69,6 @@ function UserList() {
             rows={data}
             disableSelectionOnClick
             columns={columns}
-            pageSize={8}
             checkboxSelection
           />
         </div>

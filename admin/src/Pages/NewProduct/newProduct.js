@@ -1,8 +1,86 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import "./newProduct.css";
+import "../../App.css";
+import Topbar from '../../Components/Topbar/topbar';
+import Sidebar from '../../Components/Sidebar/sidebar';
+import { addProduct } from "../../Redux/apiCalls";
+import { useDispatch } from "react-redux";
 function NewProduct() {
+  const [inputs, setInputs] = useState({});
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState([]);
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+  const handleCat = (e) => {
+    setCat(e.target.value.split(","));
+  };
+
   return (
-    <div>NewProduct</div>
+    <>
+      <Topbar />
+      <div className='container'>
+        <Sidebar />
+        <div className="newProduct">
+          <h1 className="addProductTitle">New Product</h1>
+          <form className="addProductForm">
+            <div className="addProductItem">
+              <label>Image</label>
+              <input
+                type="file"
+                id="file"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>Title</label>
+              <input
+                name="title"
+                type="text"
+                placeholder="Apple Airpods"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>Description</label>
+              <input
+                name="desc"
+                type="text"
+                placeholder="description..."
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>Price</label>
+              <input
+                name="price"
+                type="number"
+                placeholder="100"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="addProductItem">
+              <label>Categories</label>
+              <input type="text" placeholder="jeans,skirts" onChange={handleCat} />
+            </div>
+            <div className="addProductItem">
+              <label>Stock</label>
+              <select name="inStock" onChange={handleChange}>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+            <button  className="addProductButton">
+              Create
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   )
 }
 

@@ -1,34 +1,13 @@
-import React, { useState} from 'react';
-import {useNavigate} from "react-router-dom";
-import { publicRequest } from '../../requestMethod';
+import React, {  useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../Features/userSlice.js';
+import { login } from '../../Redux/apiCalls';
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const handleClick = async (e) => {
         e.preventDefault();
-        try {
-            await publicRequest.post("auth/login", {
-                username: username,
-                password: password
-            }).then(
-                res => {
-                if (res.data.success && res.data.role === "Admin") {
-                    dispatch(login({
-                        username: res.data.username,
-                        role: res.data.role,
-                        token: res.data.token,
-                        loggedIn: true
-                    }));
-                    navigate("/")
-                } 
-            })
-        } catch {
-            console.log((err)=>{console.log("error in login page",err)})
-        }
+        login(dispatch, {username,password})
     };
     return (
         <div

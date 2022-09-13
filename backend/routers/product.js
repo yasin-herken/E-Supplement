@@ -8,8 +8,8 @@ import {
 
 import express from "express";
 const router = express.Router();
-
-/*router.post("/", verifyTokenAndAdmin, async (req, res) => {
+//verifyTokenAndAdmin
+router.post("/", async (req, res) => {
     const newProduct = new Product(req.body);
   
     try {
@@ -44,7 +44,7 @@ const router = express.Router();
     } catch (err) {
       res.status(500).json(err);
     }
-  });*/
+  });
   
   //GET PRODUCT
   router.get("/find/:id", async (req, res) => {
@@ -59,7 +59,6 @@ const router = express.Router();
   
   //GET ALL PRODUCTS
   router.get("/all", async (req, res) => {
-   
     const qNew = req.query.new;
     const qCategory = req.query.category;
    
@@ -77,7 +76,6 @@ const router = express.Router();
       } else {
         products = await Product.find();
       }
-      //console.log(products);
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);

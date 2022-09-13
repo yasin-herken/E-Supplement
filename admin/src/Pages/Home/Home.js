@@ -5,7 +5,7 @@ import { userData } from "../../dummyData";
 import { userRequest } from '../../requestMethod.js';
 import "./Home.css";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../Pages/Features/userSlice.js";
+import { selectUser } from "../../Redux/userRedux.js";
 import WidgetSm from "../../Components/WidgetSm/WidgetSm";
 import WidgetLg from "../../Components/WidgetLg/WidgetLg";
 import Topbar from '../../Components/Topbar/topbar.js';
@@ -13,7 +13,10 @@ import Sidebar from '../../Components/Sidebar/sidebar.js';
 import "../../App.css";
 function Home() {
   const [userStats, setUserStats] = useState([]);
-  const user = useSelector(selectUser)
+  const user = useSelector((state)=>state.user);
+  useEffect(()=>{
+    console.log(user)
+  },[user])
   const MONTHS = useMemo(
     () => [
       "Jan",
@@ -34,7 +37,7 @@ function Home() {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await userRequest(user.token.split(" ")[1]).get("/users/stats");
+        const res = await userRequest(user?.token.split(" ")[1]).get("/users/stats");
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,
@@ -66,7 +69,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     </>
 
   )

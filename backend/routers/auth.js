@@ -5,7 +5,7 @@ import User from "../models/User.js";
 import dotenv from 'dotenv/config';
 const router = express.Router()
 
-/*router.post("/register",async (req,res)=>{
+router.post("/register",async (req,res)=>{
     User.findOne({username:req.body.username}, async (err,data)=>{
         if(err) throw err;
         if(data){
@@ -41,7 +41,7 @@ const router = express.Router()
             });
         }
     });
-});*/
+});
 
 router.post("/login", async (req,res)=>{
     User.findOne({ username: req.body.username }).then(user => {
@@ -74,7 +74,7 @@ router.post("/login", async (req,res)=>{
             success: true,
             message: "Logged in successfully",
             token: "Bearer " + token,
-            user : user,
+            username : user.username,
             role: user.role
         })
     })

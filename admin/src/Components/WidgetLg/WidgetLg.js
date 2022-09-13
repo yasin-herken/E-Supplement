@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { userRequest } from '../../requestMethod';
-import { format } from "timeago.js"
 import { selectUser } from '../../Pages/Features/userSlice';
 import { useSelector } from "react-redux";
 function WidgetLg() {
@@ -37,7 +36,7 @@ function WidgetLg() {
               <td className="widgetLgUser">
                 <span className="widgetLgName">{order.userId}</span>
               </td>
-              <td className="widgetLgDate">{format(order.createdAt)}</td>
+              <td className="widgetLgDate">{order.createdAt}</td>
               <td className="widgetLgAmount">${order.amount}</td>
               <td className="widgetLgStatus">
                 <Button type={order.status} />
