@@ -14,7 +14,7 @@ import {
     addProductStart,
     addProductSuccess,
   } from "./productRedux";
-  export const login = async (dispatch, user) => {
+  export const login = (user) =>async (dispatch) => {
     console.log("LoginStart")
     dispatch(loginStart());
     try {
@@ -28,7 +28,11 @@ import {
       console.log(err)
     }
   };
-
+  export const logout = () => (dispatch) => {
+    dispatch({
+      type: "RESET"
+    })
+  }
   export const getProducts = async (dispatch) => {
     dispatch(getProductStart());
     try {

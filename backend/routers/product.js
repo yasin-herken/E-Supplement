@@ -59,6 +59,7 @@ router.post("/", async (req, res) => {
   
   //GET ALL PRODUCTS
   router.get("/all", async (req, res) => {
+    console.log("here")
     const qNew = req.query.new;
     const qCategory = req.query.category;
    
@@ -82,7 +83,7 @@ router.post("/", async (req, res) => {
     }
   });
 
- /*  //GET ALL PRODUCTS FROM A CATEGORY
+ //GET ALL PRODUCTS FROM A CATEGORY
    router.get("/all/:category", async (req, res) => {
      console.log("ehe")
      products = await Product.find(function(data){
@@ -94,6 +95,6 @@ router.post("/", async (req, res) => {
      })
      console.log(products,3)
      res.status(200).json(products);
-  });*/
+  });
 
   export default router;

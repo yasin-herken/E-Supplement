@@ -21,12 +21,13 @@ const userSlice = createSlice({
       state.error = true;
     },
     logout: (state) => {
+      console.log("here")
       state.user = null;
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout } = userSlice.actions;
 
 export const selectUser = (state)=>state.user;
 

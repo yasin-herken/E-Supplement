@@ -14,9 +14,6 @@ import "../../App.css";
 function Home() {
   const [userStats, setUserStats] = useState([]);
   const user = useSelector((state)=>state.user);
-  useEffect(()=>{
-    console.log(user)
-  },[user])
   const MONTHS = useMemo(
     () => [
       "Jan",

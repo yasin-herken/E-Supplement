@@ -13,11 +13,13 @@ import Favorites from './Pages/favorites';
 import SignUp from './Pages/signup';
 import { useSelector } from "react-redux";
 import ProductDetails from './Pages/productDetails';
+import { useEffect } from 'react';
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
-  console.log(user)
-  
+  const user = useSelector((state) => state.user);
+  useEffect(()=>{
+    console.log(user);
+  },[user])  
   return (
     <Routes>
       <Route path="/" element={<Home />}/>

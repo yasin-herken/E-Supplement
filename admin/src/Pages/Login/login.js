@@ -1,14 +1,24 @@
-import React, {  useState} from 'react';
-import { useDispatch } from 'react-redux';
+import React, {  useEffect, useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../Redux/apiCalls';
+import { selectUser } from '../../Redux/userRedux';
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const user = useSelector(selectUser);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleClick = async (e) => {
         e.preventDefault();
         login(dispatch, {username,password})
     };
+    useEffect(()=>{
+        console.log(user)
+        if(user?.role==="admin"){
+            navigate("/")   
+        }
+    },[user])
     return (
         <div
             style={{

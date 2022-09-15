@@ -4,12 +4,6 @@ import productReducer from "./productRedux";
 import {
   persistStore,
   persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -19,10 +13,18 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({
+const combinedReducer = combineReducers({
   user: userReducer,
   product: productReducer,
 });
+const rootReducer = (state, action) => {
+  console.log("asdasds")
+  if (action.type === 'RESET') {
+    console.log("asd")
+    state = undefined
+  }
+  return combinedReducer(state, action)
+}
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -30,9 +32,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
     }),
 });
 
