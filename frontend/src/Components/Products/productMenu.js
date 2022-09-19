@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from "react";
-import product1 from "../../assets/img/product/product-1.jpg";
 import ProductSidebar from "../ProductSidebar/productSidebar";
-import ItemFilter from "../ItemFilter/itemFilter";
-import ProductItem from "../ProductItem/productItem";
-import { productList, categoryList } from "../../Axios";
 import { useLocation } from "react-router-dom";
 import ProductTable from "../ProductTable/productTable";
 import PriceSlider from "../ProductSidebar/priceSlider";
-import { Form, Option } from "react-bootstrap";
 import { publicRequest } from "../../requestMethods";
-
 const ProductMenu = (props) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filter, setFilter] = useState({ category: "vitamin" });
-  const [price, setPrice] = useState([])
-
-
+  const [filter, setFilter] = useState({ category: "Ilac", price: [0,200] });
+  const [price, setPrice] = useState([]);
   const location = useLocation();
   //console.log(location.pathname)
 
@@ -24,31 +16,28 @@ const ProductMenu = (props) => {
     const value = e.target.value;
     setFilter({
       ...filter,
-      [e.target.name]: value,
+      category: value
     })
   }
-
+  useEffect(() => {
+    console.log(filter);
+  }, [filter])
   //console.log(filter.category);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await publicRequest("categories/all");
+        console.log(res);
         setCategories(res.data);
       } catch (err) {
         console.log(err);
       }
-  };
-  fetchProducts();
-}, []);
+    };
+    fetchProducts();
+  }, []);
 
   //console.log(props.cat.item);
-
-
-
-  useEffect(() => {
-    console.log(price);
-  }, [price]);
 
   const priceHandler = (a) => {
     setPrice(a);
@@ -67,37 +56,45 @@ const ProductMenu = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-5">
-              {/*<ProductSidebar categories={categories} />*/}
+              <div className="sidebar">
+                <div className="sidebar__item">
+                  <ProductSidebar categories={categories} />
+                </div>
+                <div>
+                  <PriceSlider priceHandler={priceHandler} />
+                </div>
+              </div>
+
             </div>
             <div className="col-lg-9 col-md-7">
-
-              {/* FILTER MENU*/}
-              <div className="filter__item">
-                <div className="row">
-                  <div className="col-lg-4 col-md-5">
-                    <div className="filter__sort">
-                      <span> CATEGORIES </span>
-                      <Form.Select name="category" aria-label="Default select example" onChange={handleFilters}>
-                        {categories.map((item) => (
-                          <option key={item.id}>{item.category}</option>
-                        ))}
-                      </Form.Select>
+              <div class="filter__item">
+                <div class="row">
+                  <div class="col-lg-4 col-md-5">
+                    <div class="filter__sort">
+                      <span>Sort By</span>
+                      <select onChange={handleFilters} >
+                        {
+                          categories && categories.map((category) => {
+                            return <option value={category.category} key={category._id}>{category.category}</option>
+                          })
+                        }
+                      </select>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4">
-                    <PriceSlider priceHandler={priceHandler} />
+                  <div class="col-lg-4 col-md-4">
+                    <div class="filter__found">
+                      <h6><span>16</span> Products found</h6>
+                    </div>
                   </div>
-                  <div className="col-lg-4 col-md-3">
-                    <div className="filter__option">
-                      <span className="icon_grid-2x2"></span>
-                      <span className="icon_ul"></span>
+                  <div class="col-lg-4 col-md-3">
+                    <div class="filter__option">
+                      <span class="icon_grid-2x2"></span>
+                      <span class="icon_ul"></span>
                     </div>
                   </div>
                 </div>
               </div>
-              {/* FILTER MENU ENDS*/}
               <ProductTable filters={filter} />
-
               <div className="product__pagination">
                 <a href="#">1</a>
                 <a href="#">2</a>

@@ -44,7 +44,7 @@ const ProductTable = (props) => {
       {filteredProducts.map((item) => (
         <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
           <ProductItem 
-            imgPath={product1}
+            imgPath={item.img}
             productName={item.title}
             productPrice={item.price}
             productId = {item._id}

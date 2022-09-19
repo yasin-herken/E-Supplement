@@ -19,7 +19,7 @@ function Categories(props) {
     }
   }, [props.show]);
 
- 
+
 
 
   return (
@@ -35,16 +35,17 @@ function Categories(props) {
         >
           {props.categories.map((item,index) => (
             <li key={index}>
-              <Link to="/shop" onClick={() =>{
+              <Link to="#" onClick={() =>{
                // props.setCat({item})
                 //console.log("clicked")
               }}>{item.category}</Link>
             </li>
           ))}
-       
+
         </ul>
       </div>
     </div>
+    
   );
 }
 

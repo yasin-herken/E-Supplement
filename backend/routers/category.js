@@ -16,14 +16,13 @@ router.get("/all", async (req, res) => {
 
     categories = await Categories.find({});
 
-    console.log(categories, "0");
     res.status(200).json(categories);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.post("/addCategory", verifyTokenAndAdmin,async (req, res) => {
+router.post("/addCategory",async (req, res) => {
   try {
     const {category } = req.body;
 
@@ -40,6 +39,6 @@ router.post("/addCategory", verifyTokenAndAdmin,async (req, res) => {
     console.log(error);
     return res.json({ message: "create category failed" });
   }
-})
+});
 
 export default router;
