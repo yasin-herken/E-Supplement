@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProductSidebar from "../ProductSidebar/productSidebar";
-import { useLocation } from "react-router-dom";
 import ProductTable from "../ProductTable/productTable";
 import PriceSlider from "../ProductSidebar/priceSlider";
 import { publicRequest } from "../../requestMethods";
+import ProductSwiper from "../LatestProduct/productSwiper";
 const ProductMenu = (props) => {
-  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filter, setFilter] = useState({ category: "Ilac", price: [0,200] });
+  const [filter, setFilter] = useState({ category: "meat", price: [0, 200] });
   const [price, setPrice] = useState([]);
-  const location = useLocation();
-  //console.log(location.pathname)
-
+  const [numberOfProducts,setNumberOfProducts] = useState(0);
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilter({
@@ -60,8 +57,11 @@ const ProductMenu = (props) => {
                 <div className="sidebar__item">
                   <ProductSidebar categories={categories} />
                 </div>
-                <div>
+                <div className="sidebar__item">
                   <PriceSlider priceHandler={priceHandler} />
+                </div>
+                <div className="sidebar__item">
+                  <ProductSwiper />
                 </div>
               </div>
 
@@ -72,7 +72,7 @@ const ProductMenu = (props) => {
                   <div class="col-lg-4 col-md-5">
                     <div class="filter__sort">
                       <span>Sort By</span>
-                      <select onChange={handleFilters} >
+                      <select onChange={handleFilters} style={{ background: "transparent", border: "none" }}>
                         {
                           categories && categories.map((category) => {
                             return <option value={category.category} key={category._id}>{category.category}</option>
@@ -83,7 +83,7 @@ const ProductMenu = (props) => {
                   </div>
                   <div class="col-lg-4 col-md-4">
                     <div class="filter__found">
-                      <h6><span>16</span> Products found</h6>
+                      <h6><span>{numberOfProducts}</span> Products found</h6>
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-3">
@@ -94,7 +94,7 @@ const ProductMenu = (props) => {
                   </div>
                 </div>
               </div>
-              <ProductTable filters={filter} />
+              <ProductTable filters={filter} setNumberOfProducts={setNumberOfProducts}/>
               <div className="product__pagination">
                 <a href="#">1</a>
                 <a href="#">2</a>

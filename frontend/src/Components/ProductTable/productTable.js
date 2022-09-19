@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ProductItem from "../ProductItem/productItem";
-import product1 from "../../assets/img/product/product-1.jpg";
 import axios from "axios";
 
 const ProductTable = (props) => {
@@ -29,6 +28,9 @@ const ProductTable = (props) => {
     };
     getProducts();
   }, [props.filters.category]);
+  useEffect(()=>{
+    props.setNumberOfProducts(products.length);
+  },[props,products])
 
   useEffect(() => {
     //console.log("hi");
