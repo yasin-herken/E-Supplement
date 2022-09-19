@@ -23,7 +23,6 @@ const userSlice = createSlice({
     logout: (state) => {
       state.isFetching = false;
       state.user = null;
-      console.log("redux");
     }
   },
 });

@@ -11,16 +11,13 @@ const ProductDetails = () => {
     const location = useLocation();
     const [product, setProduct] = useState({});
     const id = location.search.split("=")[1];
-  //  console.log(location.search);
-    console.log(id);
     useEffect(() => {
         const getProduct = async () => {
           try {
             const res = await publicRequest.get("/products/find/" + id);
             setProduct(res.data);
-            console.log(res.data)
-          } catch {
-            console.log("hh")
+          } catch(err) {
+            console.log(err)
           }
         };
         getProduct();

@@ -1,12 +1,8 @@
-import React,{useState} from 'react'
+import React from 'react'
 
 const FavoriteCard = (props) => {
- 
- 
       var price = parseFloat(props.productPrice);
       price = price.toFixed(2)
-
-    
       return (
         <tr>
           <td className="shoping__cart__item">

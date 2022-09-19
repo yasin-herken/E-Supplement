@@ -7,56 +7,56 @@ import { productList, categoryList } from "../../Axios";
 import { useLocation } from "react-router-dom";
 import ProductTable from "../ProductTable/productTable";
 import PriceSlider from "../ProductSidebar/priceSlider";
-import { Form , Option} from "react-bootstrap";
+import { Form, Option } from "react-bootstrap";
+import { publicRequest } from "../../requestMethods";
 
 const ProductMenu = (props) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filter,setFilter] = useState({category : "vitamin"});
-  const[price,setPrice] = useState([])
+  const [filter, setFilter] = useState({ category: "vitamin" });
+  const [price, setPrice] = useState([])
 
 
-  const location = useLocation()
+  const location = useLocation();
   //console.log(location.pathname)
 
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilter({
       ...filter,
-      [e.target.name] : value,
+      [e.target.name]: value,
     })
   }
 
   //console.log(filter.category);
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    const fetchProducts = async () => {
+      try {
+        const res = await publicRequest("categories/all");
+        setCategories(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+  };
+  fetchProducts();
+}, []);
 
   //console.log(props.cat.item);
 
-  const fetchProducts = () => {
-    categoryList(categories)
-      .then((res) => {
-       // console.log(res.data);
-        setCategories(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
 
   useEffect(() => {
     console.log(price);
   }, [price]);
 
-   const priceHandler = (a) => {
+  const priceHandler = (a) => {
     setPrice(a);
     setFilter({
       ...filter,
-      price : price,
+      price: price,
     })
-   
+
   }
 
 
@@ -67,11 +67,11 @@ const ProductMenu = (props) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-5">
-            {/*<ProductSidebar categories={categories} />*/} 
+              {/*<ProductSidebar categories={categories} />*/}
             </div>
             <div className="col-lg-9 col-md-7">
-         
-             {/* FILTER MENU*/}
+
+              {/* FILTER MENU*/}
               <div className="filter__item">
                 <div className="row">
                   <div className="col-lg-4 col-md-5">
@@ -85,7 +85,7 @@ const ProductMenu = (props) => {
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4">
-                    <PriceSlider priceHandler = {priceHandler}/>
+                    <PriceSlider priceHandler={priceHandler} />
                   </div>
                   <div className="col-lg-4 col-md-3">
                     <div className="filter__option">
@@ -96,8 +96,8 @@ const ProductMenu = (props) => {
                 </div>
               </div>
               {/* FILTER MENU ENDS*/}
-              <ProductTable  filters={filter}/>
-         
+              <ProductTable filters={filter} />
+
               <div className="product__pagination">
                 <a href="#">1</a>
                 <a href="#">2</a>

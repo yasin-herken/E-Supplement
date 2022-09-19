@@ -5,7 +5,6 @@ const ProductItem = (props) => {
   var price = parseFloat(props.productPrice);
   price = price.toFixed(2);
   const navigate = useNavigate();
-  console.log(props.productId)
 
   const handleProduct = (e) => {
     navigate(`/product-details/?category=${props.productId}`);

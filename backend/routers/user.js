@@ -94,7 +94,6 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    console.log(req.body)
     const { username, password, phoneNumber, email } = req.body;
 
     const userExists = await User.findOne({ email });

@@ -33,8 +33,8 @@ function Categories(props) {
           className={shake ? `shake` : null}
           style={{ display: active ? "block" : "none" }}
         >
-          {props.categories.map((item) => (
-            <li>
+          {props.categories.map((item,index) => (
+            <li key={index}>
               <Link to="/shop" onClick={() =>{
                // props.setCat({item})
                 //console.log("clicked")

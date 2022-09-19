@@ -5,12 +5,12 @@ import product1 from "../../assets/img/product/product-1.jpg";
 import product2 from "../../assets/img/product/product-2.jpg";
 import product3 from "../../assets/img/product/product-3.jpg";
 import product4 from "../../assets/img/product/product-4.jpg";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { addProduct, updateProductArray } from "../../redux/cartRedux";
 
 const ProductDetails = (props) => {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user);
   const cart2 = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const ProductDetails = (props) => {
   const [img, setImg] = useState(product1);
   const [input, setInput] = useState(0);
   const [cart, setCart] = useState({});
-  const [newProduct, setNewProduct] = useState({ quantity: 1, productId: "",price :0});
+  const [newProduct, setNewProduct] = useState({ quantity: 1, productId: "", price: 0 });
 
 
   const swipeHandler = (e) => {
@@ -35,7 +35,7 @@ const ProductDetails = (props) => {
   };
 
   useEffect(() => {
-    setNewProduct({ quantity: input, productId: props.product._id ,price : props.product.price});
+    setNewProduct({ quantity: input, productId: props.product._id, price: props.product.price });
   }, [input]);
 
   useEffect(() => {
@@ -77,18 +77,18 @@ const ProductDetails = (props) => {
         const defaultValue = {
           productId: item.productId,
           quantity: 0,
-          price : item.price,
+          price: item.price,
         };
-     //   console.log(item.productId)
+        //   console.log(item.productId)
         const finalValue = array
           .filter((other) => other.productId === item.productId) //we filter the same items
           .reduce((prevVal, currentVal) => {
             //we reduce them into a single entry
-          //  console.log(prevVal.quantity + currentVal.quantity , "prevVal ++ ")
+            //  console.log(prevVal.quantity + currentVal.quantity , "prevVal ++ ")
             prevVal.quantity = prevVal.quantity + parseInt(currentVal.quantity);
-           // console.log(prevVal.quantity , "prevVal")
-           // console.log(currentVal.quantity , "currentVal")
-            
+            // console.log(prevVal.quantity , "prevVal")
+            // console.log(currentVal.quantity , "currentVal")
+
 
             return prevVal;
           }, defaultValue);
@@ -108,10 +108,10 @@ const ProductDetails = (props) => {
       });
 
     console.log(result);
- 
+
 
     cart.products = result;
-    
+
     ///dispatch(updateProductArray(result))
     dispatch(addProduct(newProduct))
     updateCard(cart);
@@ -146,38 +146,20 @@ const ProductDetails = (props) => {
                 autoplay={{ delay: 5000, disableOnInteraction: false }}
                 slidesPerView={4}
               >
-                <SwiperSlide className="swiper-image">
-                  <img
-                    data-imgbigurl={product2}
-                    src={product2}
-                    alt=""
-                    onClick={swipeHandler}
-                  ></img>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-image">
-                  <img
-                    data-imgbigurl={product3}
-                    src={product3}
-                    alt=""
-                    onClick={swipeHandler}
-                  ></img>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-image">
-                  <img
-                    data-imgbigurl={product4}
-                    src={product4}
-                    alt=""
-                    onClick={swipeHandler}
-                  ></img>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-image">
-                  <img
-                    data-imgbigurl={product1}
-                    src={product1}
-                    alt=""
-                    onClick={swipeHandler}
-                  ></img>
-                </SwiperSlide>
+                {
+                  [...Array(4)].map((x, i) => {
+                    return (
+                      <SwiperSlide className="swiper-image" key={i}>
+                        <img
+                          data-imgbigurl={props.product.img}
+                          src={props.product.img}
+                          alt=""
+                          onClick={swipeHandler}
+                        ></img>
+                      </SwiperSlide>
+                    )
+                  })
+                }
               </Swiper>
             </div>
           </div>
@@ -190,7 +172,7 @@ const ProductDetails = (props) => {
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
                 <i className="fa fa-star-half-o" />
-                <span>(18 reviews)</span>
+                <span>{`(${props.product.reviews} reviews)`}</span>
               </div>
               <div className="product__details__price">
                 $ {parseInt(props.product.price).toFixed(2)}
@@ -205,7 +187,7 @@ const ProductDetails = (props) => {
                       //defaultValue={1}
                       value={input}
                       onChange={inputHandler}
-                      //  onKeyPress={preventMinus}
+                    //  onKeyPress={preventMinus}
                     />
                   </div>
                 </div>
@@ -234,8 +216,8 @@ const ProductDetails = (props) => {
                 </li>
                 <li>
                   <b>Categories </b>{" "}
-                  {props.product.categories?.map((item) => (
-                    <span>
+                  {props.product.categories?.map((item,index) => (
+                    <span key={index}>
                       {item} <samp> ,</samp>
                     </span>
                   ))}
@@ -294,7 +276,7 @@ const ProductDetails = (props) => {
                     role="tab"
                     aria-selected="false"
                   >
-                    Reviews <span>(1)</span>
+                    Reviews <span>{`(${props.product.reviews})`}</span>
                   </a>
                 </li>
               </ul>
