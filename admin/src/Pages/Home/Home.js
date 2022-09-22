@@ -1,19 +1,21 @@
 import React, { useMemo, useState, useEffect } from 'react'
-import FeaturedInfo from "../../Components/featuredInfo/FeaturedInfo.js";
-import Chart from "../../Components/Chart/Chart.js";
-import { userData } from "../../dummyData";
 import { userRequest } from '../../requestMethod.js';
 import "./Home.css";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../Redux/userRedux.js";
-import WidgetSm from "../../Components/WidgetSm/WidgetSm";
-import WidgetLg from "../../Components/WidgetLg/WidgetLg";
-import Topbar from '../../Components/Topbar/topbar.js';
 import Sidebar from '../../Components/Sidebar/sidebar.js';
 import "../../App.css";
+import { Flex } from '@chakra-ui/react';
+// import {
+//   List,
+//   ListItem,
+//   ListIcon,
+//   OrderedList,
+//   UnorderedList,
+// } from '@chakra-ui/react';
+import Navbar from '../../Components/Navbar/navbar.js';
 function Home() {
   const [userStats, setUserStats] = useState([]);
-  const user = useSelector((state)=>state.user);
+  const user = useSelector((state) => state.user);
   const MONTHS = useMemo(
     () => [
       "Jan",
@@ -49,7 +51,7 @@ function Home() {
   }, [MONTHS, user]);
   return (
     <>
-      <Topbar />
+      {/* <Topbar />
       <div className='container'>
         <Sidebar />
         <div className="home">
@@ -65,7 +67,14 @@ function Home() {
             <WidgetLg />
           </div>
         </div>
-      </div>
+      </div> */}
+      <Flex
+        flexDir="row"
+      >
+        <Sidebar />
+        <Navbar />
+      </Flex>
+
     </>
 
   )

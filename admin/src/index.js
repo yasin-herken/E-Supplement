@@ -3,17 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import store,{Persistor} from './Redux/store.js';
+import store, { Persistor } from './Redux/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import customTheme from "./Themes/extendTheme";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={Persistor}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ChakraProvider theme={customTheme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
     </PersistGate>
   </Provider>
 );

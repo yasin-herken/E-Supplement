@@ -1,0 +1,9 @@
+.items > *:hover {
+    background-color: #338fff;
+    cursor: pointer;
+  }
+  .items > * {
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
