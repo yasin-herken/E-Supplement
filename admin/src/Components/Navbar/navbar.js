@@ -5,7 +5,6 @@ import NavbarIcon from './navbarIcon';
 import NavbarItem from './navbarItem';
 import NavbarMenu from './navbarMenu';
 function Navbar() {
-
     return (
         <Flex
             width="100%"
@@ -20,7 +19,6 @@ function Navbar() {
                 <NavbarItem float={"left"} href="/dashboard" title="Dashboard" />
                 <NavbarItem float={"left"} href="/dashboard" title="Users" />
                 <NavbarItem float={"left"} href="/dashboard" title="Settings" />
-
                 <ListItem float={"right"}>
                     <NavbarMenu />
                 </ListItem>

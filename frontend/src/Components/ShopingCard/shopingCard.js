@@ -8,7 +8,7 @@ import axios from "axios";
 import { updateTotal } from "../../redux/cartRedux";
 
 function ShopingCard() {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user);
   const [cart, setCart] = useState({});
   const cart2 = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function ShopingCard() {
         const res = await axios.get(
           `http://localhost:5000/api/carts/find/${user?.user._id}`
         );
-
+          console.log(res)
         setCart(res.data);
       } catch (err) {
         console.log(err);

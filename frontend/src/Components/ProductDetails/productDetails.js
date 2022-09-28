@@ -192,7 +192,6 @@ const ProductDetails = (props) => {
               <button
                 onClick={addCartHandler}
                 className="btnn fourth"
-                disabled={user === null}
               >
                 ADD TO CARD
               </button>
@@ -213,7 +212,7 @@ const ProductDetails = (props) => {
                 </li>
                 <li>
                   <b>Categories </b>{" "}
-                  {props.product.categories?.map((item,index) => (
+                  {props.product.categories?.map((item, index) => (
                     <span key={index}>
                       {item} <samp> ,</samp>
                     </span>

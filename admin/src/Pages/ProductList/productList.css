@@ -29,3 +29,29 @@
     color: red;
     cursor: pointer;
 }
+.pagination > li {
+    display: inline;
+    list-style: none;
+  }
+  .pagination > li > a,
+  .pagination > li > span {
+    float: left;
+    padding: 10px 20px;
+    line-height: 1.5;
+    margin-left: -1px;
+  }
+  
+  .pagination > li.active > a {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  .pagination > li > a:hover {
+    background-color: #218838;
+    color: white;
+    cursor: pointer;
+  }
+  .pagination > li:first-child > a,
+  .pagination > li:first-child > span {
+    margin-left: 0;
+  }

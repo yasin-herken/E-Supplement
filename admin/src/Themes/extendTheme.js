@@ -1,5 +1,12 @@
 import { extendTheme } from '@chakra-ui/react';
-
+import Card from "../Chakra/card";
+const breakpoints = {
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
+}
 const customTheme = extendTheme({
   colors: {
     brand: {
@@ -32,6 +39,9 @@ const customTheme = extendTheme({
     extrabold: 800,
     black: 900,
   },
+  components: {
+    Card,
+  }
 });
 
 export default customTheme;

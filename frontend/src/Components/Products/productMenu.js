@@ -6,7 +6,7 @@ import { publicRequest } from "../../requestMethods";
 import ProductSwiper from "../LatestProduct/productSwiper";
 const ProductMenu = (props) => {
   const [categories, setCategories] = useState([]);
-  const [filter, setFilter] = useState({ category: "meat", price: [0, 200] });
+  const [filter, setFilter] = useState({ category: "", price: [0, 200] });
   const [price, setPrice] = useState([]);
   const [numberOfProducts,setNumberOfProducts] = useState(0);
   const handleFilters = (e) => {
@@ -25,7 +25,6 @@ const ProductMenu = (props) => {
     const fetchProducts = async () => {
       try {
         const res = await publicRequest("categories/all");
-        console.log(res);
         setCategories(res.data);
       } catch (err) {
         console.log(err);

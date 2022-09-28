@@ -11,7 +11,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { isFetching, error } = useSelector((state) => state.user);
+  const { isFetching } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -29,20 +29,6 @@ const Login = () => {
         <div className="text-center mt-4 name">Application</div>
         <Form
           className="p-3 mt-3"
-          /*  onSubmit={(e) => {
-          e.preventDefault();
-
-          login(formData)
-            .then((res) => {
-              console.log(res.data.user);
-              localStorage.setItem("user", JSON.stringify(res.data.user));
-              setUser(res.data.user);
-             // navigate("/card");
-            })
-            .catch((err) => {
-              alert(err.response.data.message);
-            });
-        }}*/
         >
           <div className="form-field d-flex align-items-center">
             <Form.Group className="mb-3">

@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import {
-    LineStyle,
-    Timeline,
-    TrendingUp,
-    PermIdentity,
-    Storefront,
-    AttachMoney,
-    BarChart,
-    MailOutline,
-    DynamicFeed,
-    ChatBubbleOutline,
-    WorkOutline,
-    Report,
-} from "@mui/icons-material";
-import { CheckIcon, PhoneIcon, SpinnerIcon, TimeIcon, UnlockIcon, ViewIcon } from '@chakra-ui/icons';
+import React from "react";
+// import {
+//     LineStyle,
+//     Timeline,
+//     TrendingUp,
+//     PermIdentity,
+//     Storefront,
+//     AttachMoney,
+//     BarChart,
+//     MailOutline,
+//     DynamicFeed,
+//     ChatBubbleOutline,
+//     WorkOutline,
+//     Report,
+// } from "@mui/icons-material";
+// import { CheckIcon, PhoneIcon, SpinnerIcon, TimeIcon, UnlockIcon, ViewIcon } from '@chakra-ui/icons';
 import "./sidebar.css";
-import { Avatar, Box, Center, Divider, Flex, Heading, IconButton, Link, List, ListItem, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Link, List, ListItem } from "@chakra-ui/react";
+import { AiFillHome } from "react-icons/ai";
+import { HiShoppingBag } from "react-icons/hi";
 import NavItem from "./navItem";
-import style from "./Sidebar.module.css";
 import NavHeader from "./navHeader";
 function Sidebar() {
     return (
@@ -108,6 +109,8 @@ function Sidebar() {
             bgColor="#302c34"
             width="250px"
             height="100vh"
+            position={"sticky"}
+            top="0"
         >
             <Box width="100%" height="65px" color="white">
                 <Center h="100%" width="100%">
@@ -120,8 +123,8 @@ function Sidebar() {
                 <List color="whiteAlpha.700">
                     <ListItem width="100%" height="50px"></ListItem>
                     <NavHeader title="Dashboard"></NavHeader>
-                    <NavItem title="Home"></NavItem>
-                    <NavItem title="Analytics"></NavItem>
+                    <NavItem title="Home" as={AiFillHome} href="/"></NavItem>
+                    <NavItem title="Products" as={HiShoppingBag} href="/products"></NavItem>
                     <NavItem title="Sales"></NavItem>
                 </List>
             </Box>

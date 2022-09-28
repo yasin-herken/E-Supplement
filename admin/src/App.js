@@ -6,8 +6,6 @@ import {
 import Home from './Pages/Home/Home.js';
 import Login from './Pages/Login/login';
 import { useSelector } from "react-redux";
-import { useEffect } from 'react';
-import { useState } from 'react';
 import Logout from './Pages/Logout/logout';
 import UserList from './Pages/UserList/userList';
 import User from './Pages/User/user';
@@ -18,15 +16,6 @@ import NewProduct from './Pages/NewProduct/newProduct';
 import { selectUser } from './Redux/userRedux';
 function App() {
   const user = useSelector(selectUser);
-  const [isAdmin, setIsAdmin] = useState(false);
-  useEffect(() => {
-    console.log(user)
-    if (user?.role === "Admin") {
-      setIsAdmin(true)
-    } else {
-      setIsAdmin(false)
-    }
-  }, [user])
   return (
     <Routes>
       <Route path="/login" element={<Login />}></Route>

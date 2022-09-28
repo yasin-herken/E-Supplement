@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/img/logo.png';
+import Logo from '../../assets/img/supplement.png';
 import { NavLink } from "react-router-dom";
 function Navbar({ setIsOpen }) {
   let isOpen = false;

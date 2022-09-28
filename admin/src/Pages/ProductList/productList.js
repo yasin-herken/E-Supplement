@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import Sidebar from '../../Components/Sidebar/sidebar'
-import Topbar from '../../Components/Topbar/topbar'
 import "../../App.css";
 import "./productList.css";
-import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../Redux/apiCalls";
 import { selectProduct } from '../../Redux/productRedux';
+import { Box } from '@chakra-ui/react';
+import Navbar from '../../Components/Navbar/navbar';
+import ProductHome from './productHome';
+import ProductLists from './productLists';
 function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector(selectProduct);
@@ -18,9 +20,9 @@ function ProductList() {
   const handleDelete = (id) => {
     deleteProduct(id, dispatch);
   };
-  useEffect(()=>{
+  useEffect(() => {
     console.log(products)
-  },[products])
+  }, [products])
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
     {
@@ -63,7 +65,7 @@ function ProductList() {
   ];
   return (
     <>
-      <Topbar />
+      {/* <Topbar />
       <div className='container'>
         <Sidebar />
         <div className="productList">
@@ -75,7 +77,15 @@ function ProductList() {
             checkboxSelection
           />:null}
         </div>
-      </div>
+      </div> */}
+      <Box alignItems="stretch" display="flex" w="100%">
+        <Sidebar />
+        <Box bgColor="#f5f7fb" overflow={"hidden"} display="flex" flexDirection={"column"} minH="100vh" minW="0" width={"100%"}>
+          <Navbar />
+          <ProductHome products={products?.products}/>
+          <ProductLists products={products?.products}/>
+        </Box>
+      </Box>
     </>
   )
 }

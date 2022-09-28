@@ -4,7 +4,7 @@ import "./Home.css";
 import { useSelector } from "react-redux";
 import Sidebar from '../../Components/Sidebar/sidebar.js';
 import "../../App.css";
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 // import {
 //   List,
 //   ListItem,
@@ -68,13 +68,12 @@ function Home() {
           </div>
         </div>
       </div> */}
-      <Flex
-        flexDir="row"
-      >
+      <Box alignItems="stretch" display="flex" w="100%">
         <Sidebar />
-        <Navbar />
-      </Flex>
-
+        <Box bgColor="#f5f7fb" overflow={"hidden"} display="flex" flexDirection={"column"} minH="100vh" minW="0" width={"100%"}>
+          <Navbar />
+        </Box>
+      </Box>
     </>
 
   )

@@ -15,12 +15,6 @@ const PriceSlider = ({ priceHandler }) => {
     priceHandler([parseFloat(val.min), parseFloat(val.max)])
   };
 
-  useEffect(() => {
-    //priceHandler([val.min,val.max])
-    //priceHandler([parseFloat(val.min),parseFloat(val.max)])
-
-  }, [val]);
-
   return (
     <>
       <div className="sidebar__item">
@@ -34,6 +28,7 @@ const PriceSlider = ({ priceHandler }) => {
             color="error"
             valueLabelDisplay="auto"
             onChange={updateRange}
+            disableSwap
           />
 
           <div class="range-slider">
